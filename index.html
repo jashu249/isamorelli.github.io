@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="de">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Isa Morelli – Production Management</title>
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:opsz,wght@6..96,400;6..96,600&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="assets/style.css" />
+</head>
+<body>
+
+<header class="site-header">
+  <div class="brand">
+    <a href="./">Isa Morelli</a>
+    <div class="subtitle">Production Management</div>
+  </div>
+
+  <button class="menu-btn" aria-label="Menu">
+    <span></span>
+    <span></span>
+  </button>
+</header>
+
+<main class="page">
+
+  <section class="circles">
+    <a class="circle-card" href="./current-recent-work/">
+      <img src="assets/img/current.jpg" alt="Current & Recent Work">
+      <h2>Current &amp;<br>Recent Work.</h2>
+    </a>
+
+    <a class="circle-card" href="./film/">
+      <img src="assets/img/film.jpg" alt="Film">
+      <h2>Film.</h2>
+    </a>
+
+    <a class="circle-card" href="./earlier-works-education-skills/">
+      <img src="assets/img/earlier.jpg" alt="Earlier Works, Education & Skills">
+      <h2>Earlier Works.<br>Education &amp;<br>Skills.</h2>
+    </a>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <small>© <span id="y"></span> Isa Morelli</small>
+</footer>
+
+<script>
+  document.getElementById("y").textContent = new Date().getFullYear();
+</script>
+
+</body>
+</html>
