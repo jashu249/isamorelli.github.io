@@ -8,6 +8,71 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:opsz,wght@6..96,400;6..96,600&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="../assets/style.css" />
+  
+  <style>
+    /* Styling für die detaillierte Projektliste */
+    .project-list {
+      margin-top: 40px;
+    }
+
+    .project-entry {
+      margin-bottom: 80px; /* Viel Platz zwischen den Festivals */
+      max-width: 800px;
+    }
+
+    .project-entry h2 {
+      font-family: var(--serif);
+      font-size: clamp(2rem, 5vw, 2.8rem);
+      font-weight: 600;
+      margin-bottom: 8px;
+      color: #111;
+    }
+
+    .project-info {
+      font-family: var(--sans);
+      font-size: 0.95rem;
+      letter-spacing: 0.02em;
+      color: #666;
+      margin-bottom: 16px;
+      line-height: 1.4;
+    }
+
+    .project-position {
+      font-family: var(--sans);
+      font-weight: 600;
+      font-size: 1rem;
+      color: #111;
+      margin-bottom: 12px;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    .project-tasks {
+      font-family: var(--sans);
+      font-size: 1rem;
+      line-height: 1.7;
+      font-weight: 300;
+      color: #333;
+      border-left: 1px solid #eee;
+      padding-left: 20px;
+    }
+
+    .label {
+      font-weight: 600;
+      color: #000;
+    }
+
+    .back-link {
+      display: inline-block;
+      margin-top: 40px;
+      text-decoration: none;
+      color: #111;
+      font-weight: 600;
+      font-size: 0.8rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+    }
+  </style>
 </head>
 <body>
 
@@ -16,20 +81,54 @@
     <a href="../">Isa Morelli</a>
     <div class="subtitle">Production Management</div>
   </div>
-  <button class="menu-btn" aria-label="Menu">
-    <span></span>
-    <span></span>
-  </button>
 </header>
 
 <main class="page">
   <section class="content-header">
     <h1>Current &amp; Recent Work</h1>
-    <p>Hier kannst du nun deine Projekte auflisten oder Bilder einfügen.</p>
   </section>
   
-  <div class="project-grid">
-    </div>
+  <div class="project-list">
+    
+    <article class="project-entry">
+      <h2>Bucht Der Träumer*</h2>
+      <div class="project-info">
+        Germany · since 2022 · circa 16,000 guests + crew
+      </div>
+      <div class="project-position">
+        <span class="label">Position:</span> Creative Spaces & Stage Curator · Operations Manager
+      </div>
+      <div class="project-tasks">
+        <span class="label">Tasks:</span> Crew scouting and management · Budget negotiation · Placement and logistics · Cross-department communication · On-site operations and real-time problem solving · Venue management support · Safety coordination · Post-festival follow-up and crew management
+      </div>
+    </article>
+
+    <article class="project-entry">
+      <h2>Waking Life</h2>
+      <div class="project-info">
+        Portugal · since 2024 · circa 15,000 guests + crew
+      </div>
+      <div class="project-position">
+        <span class="label">Position:</span> Artist Hospitality & Travel Coordination
+      </div>
+      <div class="project-tasks">
+        <span class="label">Tasks:</span> Artist hospitality logistics · International travel planning and booking for approximately 120 artists per edition · Coordination of arrivals and departures · Close collaboration with artist office and production teams · Real-time problem solving to ensure a smooth and cared-for artist experience
+      </div>
+    </article>
+
+    <article class="project-entry">
+      <h2>Rebellion der Träumer* Collective</h2>
+      <div class="project-info">
+        Berlin-based party collective active for over twelve years, with a distinctive musical identity. It runs its own label, founded the RE:VO Artists booking agency, and has been shaping Berlin’s club scene through long-running event series.      </div>
+      <div class="project-position">
+        <span class="label">Position:</span> Core Organizer · 2024–2025
+      </div>
+      <div class="project-tasks">
+        <span class="label">Tasks:</span> Production coordination for club events across Germany · Art direction and visual identity · Social media strategy and content creation · Merchandise art direction · Contribution to narrative concepts, aesthetic language and organizational structure
+      </div>
+    </article>
+
+  </div>
 
   <a href="../" class="back-link">← Back to Overview</a>
 </main>
