@@ -1,12 +1,11 @@
 <!doctype html>
 <html lang="de">
 <head>
-  <link rel="icon" href="assets/img/favicon.png?v=1" type="image/png">
+  <link rel="icon" href="assets/img/favicon.png?v=2" type="image/png">
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>Isa Morelli – Production Management</title>
 
-  <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:opsz,wght@6..96,400;6..96,600&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
@@ -46,6 +45,15 @@
     </a>
   </section>
 
+  <section class="image-gallery">
+    <div class="gallery-item">
+      <img src="assets/img/work-1.jpg" alt="Work 1">
+    </div>
+    <div class="gallery-item">
+      <img src="assets/img/work-2.jpg" alt="Work 2">
+    </div>
+  </section>
+
 </main>
 
 <footer class="site-footer">
@@ -54,6 +62,22 @@
 
 <script>
   document.getElementById("y").textContent = new Date().getFullYear();
+
+  const cards = document.querySelectorAll('.circle-card');
+
+  window.addEventListener('mousemove', (e) => {
+    const x = e.clientX;
+    const y = e.clientY;
+
+    cards.forEach((card, index) => {
+      // Berechnung für eine leichte Verzögerung/Bewegung
+      const speed = (index + 1) * 10; 
+      const shiftX = (x / window.innerWidth - 0.5) * speed;
+      const shiftY = (y / window.innerHeight - 0.5) * speed;
+
+      card.style.transform = `translate(${shiftX}px, ${shiftY}px)`;
+    });
+  });
 </script>
 
 </body>
