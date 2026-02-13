@@ -3,7 +3,7 @@ html,body{
     margin:0;
     padding:0;
     height: 100%;
-    overflow: hidden; /* Verhindert Scrollen auf der Startseite */
+    overflow: hidden;
 }
 
 :root{
@@ -59,21 +59,68 @@ body{
 .menu-btn span:first-child{width:45px}
 .menu-btn span:last-child{width:30px}
 
+/* Menu Overlay */
+.menu-overlay {
+  position: fixed;
+  top: 0;
+  right: -100%; /* Startet außerhalb des Bildschirms */
+  width: 100%;
+  height: 100%;
+  background-color: #fdf6f2; /* Der helle Pfirsichton aus deinem Screenshot */
+  z-index: 100;
+  transition: right 0.5s cubic-bezier(0.77, 0, 0.175, 1);
+  display: flex;
+  align-items: center;
+  padding-left: 10%;
+}
+
+.menu-overlay.open {
+  right: 0;
+}
+
+.close-btn {
+  position: absolute;
+  top: 40px;
+  right: 60px;
+  background: none;
+  border: none;
+  font-size: 3rem;
+  cursor: pointer;
+  color: #111;
+}
+
+.overlay-nav {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.overlay-nav a {
+  font-family: var(--serif);
+  font-size: clamp(2rem, 5vw, 3.5rem);
+  text-decoration: none;
+  color: #e5c1ff; /* Das helle Lila aus dem Wix-Screenshot */
+  transition: color 0.3s;
+}
+
+.overlay-nav a.active, .overlay-nav a:hover {
+  color: #111; /* Schwarz für den aktiven Link */
+}
+
 /* Main Content Area */
 .page{
   flex: 1;
   display: flex;
   flex-direction: column;
-  justify-content: space-between; /* Verteilt Kreise oben/mitte und Galerie unten */
+  justify-content: space-between;
   align-items: center;
 }
 
-/* Circles */
 .circles{
   display: flex;
   justify-content: center;
   gap: 80px;
-  margin-top: 10vh; /* Positioniert Kreise im oberen Drittel */
+  margin-top: 5vh;
 }
 
 .circle-card{
@@ -81,7 +128,7 @@ body{
   color:inherit;
   text-align:center;
   width: 160px;
-  will-change: transform; /* Optimiert Performance für JS-Movement */
+  will-change: transform;
 }
 
 .circle-img-wrap {
@@ -92,11 +139,7 @@ body{
   margin-bottom: 18px;
 }
 
-.circle-card img{
-  width: 100%;
-  height: 100%;
-  object-fit:cover;
-}
+.circle-card img{ width: 100%; height: 100%; object-fit:cover; }
 
 .circle-card h2{
   font-family: var(--serif);
@@ -106,28 +149,19 @@ body{
   margin: 0;
 }
 
-/* Galerie unten (Breit & Ausschnitt) */
 .image-gallery {
   display: flex;
   gap: 10px;
   width: 100vw;
   max-width: 100%;
-  height: 35vh; /* Nutzt 35% der Bildschirmhöhe */
+  height: 35vh;
   margin-top: auto;
 }
 
-.gallery-item {
-  flex: 1;
-  overflow: hidden;
-}
+.gallery-item { flex: 1; overflow: hidden; }
+.gallery-item img { width: 100%; height: 100%; object-fit: cover; }
 
-.gallery-item img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-
-/* Footer Links (Contact & Instagram) */
+/* Footer Links mit Rahmen */
 .bottom-nav {
   position: absolute;
   bottom: 30px;
@@ -136,7 +170,7 @@ body{
   display: flex;
   justify-content: space-between;
   z-index: 30;
-  pointer-events: none; /* Klicks gehen durch Container zum Link */
+  pointer-events: none;
 }
 
 .nav-link {
@@ -146,26 +180,21 @@ body{
   font-family: var(--serif);
   font-size: 1.1rem;
   font-weight: 600;
-  
-  /* Der weiße Rahmen/Hintergrund */
-  background-color: #fff; /* Gleiche Farbe wie dein Seitenhintergrund */
-  padding: 8px 16px;      /* Platz im Inneren des Rahmens */
-  border-radius: 4px;     /* Ganz leicht abgerundete Ecken */
-  border: 1px solid #111; /* Ein feiner schwarzer Rahmen */
-  
-  /* Sanfter Übergang beim Drüberfahren */
-  transition: all 0.3s ease;
+  background-color: #fff;
+  padding: 10px 20px;
+  border: 1px solid #111;
+  transition: all 0.3s;
 }
 
 .nav-link:hover {
-  background-color: #111; /* Hintergrund wird schwarz beim Hover */
-  color: #fff;            /* Schrift wird weiß */
+  background-color: #111;
+  color: #fff;
 }
 
-/* Mobile */
 @media(max-width:768px){
   html, body { overflow: auto; height: auto; }
   .circles { flex-direction: column; align-items: center; gap: 40px; margin-top: 40px; }
   .image-gallery { flex-direction: column; height: auto; }
   .bottom-nav { position: relative; bottom: 0; padding: 40px; pointer-events: auto; }
+  .menu-overlay { padding-left: 20px; }
 }

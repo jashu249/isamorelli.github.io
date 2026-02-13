@@ -14,13 +14,24 @@
 </head>
 <body>
 
+<div class="menu-overlay" id="menuOverlay">
+  <button class="close-btn" id="closeMenu">&times;</button>
+  <nav class="overlay-nav">
+    <a href="./" class="active">Home.</a>
+    <a href="/current-recent-work/">Current &amp; Recent Work.</a>
+    <a href="/film/">Film.</a>
+    <a href="/earlier-works-education-skills/">Earlier Works, Education &amp; Skills.</a>
+    <a href="/about-contact/">About &amp; Contact.</a>
+  </nav>
+</div>
+
 <header class="site-header">
   <div class="brand">
     <a href="./">Isa Morelli</a>
     <div class="subtitle">Production Management</div>
   </div>
 
-  <button class="menu-btn" aria-label="Menu">
+  <button class="menu-btn" id="openMenu" aria-label="Menu">
     <span></span>
     <span></span>
   </button>
@@ -62,36 +73,37 @@
 
 <footer class="bottom-nav">
   <a href="mailto:hallo@isamorelli.com" class="nav-link">CONTACT</a>
-  <a href="https://instagram.com/isamorelli" target="_blank" class="nav-link">INSTAGRAM</a>
+  <a href="https://instagram.com/aannoommaallisa" target="_blank" class="nav-link">INSTAGRAM</a>
 </footer>
 
 <script>
+  // Menü Logik
+  const openBtn = document.getElementById('openMenu');
+  const closeBtn = document.getElementById('closeMenu');
+  const overlay = document.getElementById('menuOverlay');
+
+  openBtn.addEventListener('click', () => overlay.classList.add('open'));
+  closeBtn.addEventListener('click', () => overlay.classList.remove('open'));
+
+  // Circle Movement
   const cards = document.querySelectorAll('.circle-card');
   let mouseX = 0, mouseY = 0;
   let currentX = 0, currentY = 0;
 
-  // 1. Mausposition erfassen
   window.addEventListener('mousemove', (e) => {
-    // Erhöhter Radius für deutlicheres Movement
     mouseX = (e.clientX / window.innerWidth - 0.5) * 60; 
     mouseY = (e.clientY / window.innerHeight - 0.5) * 60;
   });
 
-  // 2. Die Animation-Loop (Lerp für Butterweiches Gleiten)
   function animate() {
-    // 0.07 ist der "Wohlfühlfaktor" – niedriger = weicher/langsamer
     currentX += (mouseX - currentX) * 0.07; 
     currentY += (mouseY - currentY) * 0.07;
-
     cards.forEach((card, index) => {
-      // Unterschiedliche Geschwindigkeiten für den Parallax-Effekt
       const factor = (index + 1) * 0.6;
       card.style.transform = `translate(${currentX * factor}px, ${currentY * factor}px)`;
     });
-
     requestAnimationFrame(animate);
   }
-
   animate();
 </script>
 
