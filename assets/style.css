@@ -1,8 +1,6 @@
+/* 1. FONT REGISTRATION */
 @font-face {
   font-family: 'IsaCustomSerif';
-  /* WICHTIG: Wenn die CSS im Ordner 'assets' liegt und die Font in 'assets/fonts', 
-     dann reicht 'fonts/filename'. Wenn die Font direkt in 'assets/fonts' liegt, 
-     muss der Pfad exakt stimmen. */
   src: url('fonts/Y4GSYax7VC4ot_qNB4nYpBdaKUUE4J3TRBYA.woff2') format('woff2');
   font-weight: normal;
   font-style: normal;
@@ -14,71 +12,98 @@
   --sans: "Inter", sans-serif;
 }
 
-*{box-sizing:border-box}
-
-html,body{
-    margin:0;
-    padding:0;
-    height: 100%;
-    overflow: hidden;
+/* 2. GENERAL SETTINGS */
+*{
+  box-sizing: border-box;
 }
 
-body{
-  font-family:var(--sans);
-  color:#111;
-  background:#fff;
+html, body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  overflow: hidden;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+}
+
+body {
+  font-family: var(--sans);
+  color: #111;
+  background: #fff;
   display: flex;
   flex-direction: column;
 }
 
-/* Header */
-.site-header{
+/* 3. HEADER */
+.site-header {
   max-width: 1400px;
   width: 100%;
-  margin:0 auto;
-  padding:40px 60px;
-  display:flex;
-  justify-content:space-between;
-  align-items:flex-start;
+  margin: 0 auto;
+  padding: 40px 60px;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
   z-index: 20;
 }
 
-.brand a{
-  font-family:var(--serif);
-  font-weight:600;
+.brand {
+  display: inline-flex;
+  flex-direction: column;
+}
+
+.brand a {
+  font-family: var(--serif);
+  font-weight: 400; 
   font-size: 2.8rem;
-  text-decoration:none;
-  color:inherit;
+  text-decoration: none;
+  color: inherit;
+  letter-spacing: 0.01em;
+  display: block;      
+  line-height: 1.5;    
+  margin-bottom: 0;
 }
 
-.subtitle{
-  margin-top:8px;
-  font-size:.75rem;
-  letter-spacing:.35em;
-  text-transform:uppercase;
+.subtitle {
+  margin-top: 6px;     /* Goldene Mitte für den vertikalen Abstand */
+  font-size: 0.62rem;  /* Etwas kleiner, damit der Abstand wirken kann */
+  letter-spacing: 0.4em; /* ERHÖHT: Schiebt die Buchstaben auf die Breite des Namens */
+  text-transform: uppercase;
+  display: block;
+  width: 100%;
+  text-align: justify;
+  /* Dieser Trick sorgt dafür, dass die letzte Zeile (hier die einzige) 
+     perfekt bündig abschließt, falls der Browser letter-spacing allein nicht mag */
+  text-align-last: justify; 
 }
 
-.menu-btn{
-  background:none;
-  border:0;
-  cursor:pointer;
-  display:flex;
-  flex-direction:column;
-  gap:10px;
-  align-items:flex-end;
+.menu-btn {
+  background: none;
+  border: 0;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  align-items: flex-end;
 }
-.menu-btn span{display:block; height:2px; background:#111;}
-.menu-btn span:first-child{width:45px}
-.menu-btn span:last-child{width:30px}
 
-/* Menu Overlay */
+.menu-btn span {
+  display: block;
+  height: 2px;
+  background: #111;
+}
+
+.menu-btn span:first-child { width: 45px; }
+.menu-btn span:last-child { width: 30px; }
+
+/* 4. MENU OVERLAY */
 .menu-overlay {
   position: fixed;
   top: 0;
-  right: -100%; /* Startet außerhalb des Bildschirms */
+  right: -100%;
   width: 100%;
   height: 100%;
-  background-color: #fdf6f2; /* Der helle Pfirsichton aus deinem Screenshot */
+  background-color: #fdf6f2;
   z-index: 100;
   transition: right 0.5s cubic-bezier(0.77, 0, 0.175, 1);
   display: flex;
@@ -111,16 +136,18 @@ body{
   font-family: var(--serif);
   font-size: clamp(2rem, 5vw, 3.5rem);
   text-decoration: none;
-  color: #e5c1ff; /* Das helle Lila aus dem Wix-Screenshot */
+  color: #e5c1ff;
   transition: color 0.3s;
+  letter-spacing: 0.02em;
 }
 
-.overlay-nav a.active, .overlay-nav a:hover {
-  color: #111; /* Schwarz für den aktiven Link */
+.overlay-nav a.active, 
+.overlay-nav a:hover {
+  color: #111;
 }
 
-/* Main Content Area */
-.page{
+/* 5. MAIN CONTENT */
+.page {
   flex: 1;
   display: flex;
   flex-direction: column;
@@ -128,17 +155,17 @@ body{
   align-items: center;
 }
 
-.circles{
+.circles {
   display: flex;
   justify-content: center;
   gap: 80px;
   margin-top: 5vh;
 }
 
-.circle-card{
-  text-decoration:none;
-  color:inherit;
-  text-align:center;
+.circle-card {
+  text-decoration: none;
+  color: inherit;
+  text-align: center;
   width: 160px;
   will-change: transform;
 }
@@ -151,16 +178,22 @@ body{
   margin-bottom: 18px;
 }
 
-.circle-card img{ width: 100%; height: 100%; object-fit:cover; }
+.circle-card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
 
-.circle-card h2{
+.circle-card h2 {
   font-family: var(--serif);
   font-size: 0.85rem;
   font-weight: 400;
   line-height: 1.4;
   margin: 0;
+  letter-spacing: 0.03em;
 }
 
+/* 6. GALLERY */
 .image-gallery {
   display: flex;
   gap: 10px;
@@ -170,10 +203,18 @@ body{
   margin-top: auto;
 }
 
-.gallery-item { flex: 1; overflow: hidden; }
-.gallery-item img { width: 100%; height: 100%; object-fit: cover; }
+.gallery-item {
+  flex: 1;
+  overflow: hidden;
+}
 
-/* Footer Links mit Rahmen */
+.gallery-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* 7. FOOTER LINKS */
 .bottom-nav {
   position: absolute;
   bottom: 30px;
@@ -191,11 +232,12 @@ body{
   color: #111;
   font-family: var(--serif);
   font-size: 1.1rem;
-  font-weight: 600;
+  font-weight: 400;
   background-color: #fff;
   padding: 10px 20px;
   border: 1px solid #111;
   transition: all 0.3s;
+  letter-spacing: 0.05em;
 }
 
 .nav-link:hover {
@@ -203,6 +245,7 @@ body{
   color: #fff;
 }
 
+/* 8. MOBILE OPTIMIZATION */
 @media(max-width:768px){
   html, body { overflow: auto; height: auto; }
   .circles { flex-direction: column; align-items: center; gap: 40px; margin-top: 40px; }
