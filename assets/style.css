@@ -1,14 +1,26 @@
+@font-face {
+  font-family: 'IsaCustomSerif';
+  /* WICHTIG: Wenn die CSS im Ordner 'assets' liegt und die Font in 'assets/fonts', 
+     dann reicht 'fonts/filename'. Wenn die Font direkt in 'assets/fonts' liegt, 
+     muss der Pfad exakt stimmen. */
+  src: url('fonts/Y4GSYax7VC4ot_qNB4nYpBdaKUUE4J3TRBYA.woff2') format('woff2');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+:root {
+  --serif: 'IsaCustomSerif', serif;
+  --sans: "Inter", sans-serif;
+}
+
 *{box-sizing:border-box}
+
 html,body{
     margin:0;
     padding:0;
     height: 100%;
     overflow: hidden;
-}
-
-:root{
-  --serif:"Bodoni Moda", serif;
-  --sans:"Inter", sans-serif;
 }
 
 body{
